@@ -1,10 +1,11 @@
 /*******************************************************/
 // P5.play: t01_create_sprite
 // Create a sprite
-// Written by ??? 
+// Written by Haider Faris 
 /*******************************************************/
 console.log("%c t01_create_sprite", "color: blue;");
 
+//Variables
 const SCREEN_WIDTH = 500; 
 const SCREEN_HEIGHT = 250;
 const PLAYER_WIDTH = 25;
@@ -33,21 +34,20 @@ function setup() {
     platform_1.bounciness = 0;
     //Platform
   
-document.addEventListener("keydown", event) 
+    document.addEventListener("keydown", event) 
     function event(event) {
         if(screenSelector == "start"||screenSelector == "end"){
             screenSelector = "game" 
             resetGame();
             //Screen Selector
         }else{ 
-            if(player.y > 224)
+            if(player.y > 224){
                 player.vel.y = -20;
                 console.log(player.y);
                 //Player jump
-        };
-}
-    
-
+            };
+        }
+    }
 }
 
    
@@ -65,7 +65,7 @@ function draw() {
     console.log("Start screen")
     }else{
         text("wrong screen - you shouldnt get here", 50, 50);
-    console.log("wrong screen - you shouldnt get here")
+        console.log("wrong screen - you shouldnt get here")
     }
 }
 
@@ -73,7 +73,7 @@ function youDead(_player,_blocks){
     console.log("YouDied")
     screenSelector = "end";
     allSprites.visible = false;
-    blocks.removeAll();
+
     player.remove();
     //Dead code
 }
@@ -136,7 +136,6 @@ function endScreen(){
 }
 
 function resetGame(){
-    
     score = 0;
     player = new Sprite(PLAYER_WIDTH*1.2,  SCREEN_HEIGHT/2, PLAYER_WIDTH, PLAYER_HEIGHT, 'd');
     player.color = color("yellow");
